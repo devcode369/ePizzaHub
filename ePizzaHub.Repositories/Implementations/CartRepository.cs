@@ -1,5 +1,6 @@
 ﻿using ePizzaHub.Entities;
 using ePizzaHub.Repositories.Interfaces;
+using ePizzaHub.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,33 @@ namespace ePizzaHub.Repositories.Implementations
             Cart cart = GetCart(cartId);
             cart.UserId = userId;
             return appContext.SaveChanges();
+        }
+
+        public CartModel GetCartDetails(Guid cartId)
+        {
+            var model = (from cart in appContext.Carts
+                         where cart.Id == cartId && cart.IsActive == true
+                         select new CartModel
+                         {
+                             Id = cart.Id,
+                             UserId = cart.UserId,
+                             CreatedDate = cart.CreatedDate,
+                             Items = (from cartItem in appContext.CartItems
+                                      join item in appContext.Items
+                                      on cartItem.ItemId equals item.Id
+                                      where cartItem.CartId == cartId
+                                      select new ItemModel
+                                      {
+                                          Id = cartItem.Id,
+                                          Name = item.Name,
+                                          Description = item.Description,
+                                          ImageUrl = item.ImageUrl,
+                                          Quantity = cartItem.Quantity,
+                                          ItemId = item.Id,
+                                          UnitPrice = cartItem.UnitPrice,
+                                      }).ToList()
+                         }).FirstOrDefault();
+            return model;
         }
     }
 }

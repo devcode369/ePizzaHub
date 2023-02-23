@@ -13,7 +13,7 @@ namespace ePizzaHub.Repositories
         }
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
-
+           
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
@@ -30,7 +30,7 @@ namespace ePizzaHub.Repositories
         {
             if(!optionsBuilder.IsConfigured)
             {
-                
+                optionsBuilder.UseSqlServer(@"data source=;initial catalog=ePizzaHubSite;persist security info=True;User ID=;Password=;");
             }
             base.OnConfiguring(optionsBuilder);
         }

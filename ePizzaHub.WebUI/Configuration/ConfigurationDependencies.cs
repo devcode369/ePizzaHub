@@ -13,6 +13,7 @@ namespace ePizzaHub.WebUI.Configuration
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddTransient<IUserAccessor, UserAccessor>();
             services.AddScoped<ICatalogService, CatalogService>();
+            services.AddScoped<ICartService, CartService>();
             services.AddTransient<IFileHelper, FileHelper>();
         }
     }

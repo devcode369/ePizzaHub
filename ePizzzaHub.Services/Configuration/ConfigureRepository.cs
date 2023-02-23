@@ -23,10 +23,12 @@ namespace ePizzaHub.Services.Configuration
                 options.UseSqlServer(configuration.GetConnectionString("DbConnection"));
             });
             services.AddIdentity<User,Role>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-            services.AddScoped<DbContext, AppDbContext>();
+            services.AddScoped<DbContext, AppDbContext>();         
             services.AddTransient<IRepository<Item>, Repository<Item>>();
             services.AddTransient<IRepository<Category>, Repository<Category>>();
             services.AddTransient<IRepository<ItemType>, Repository<ItemType>>();
+            services.AddTransient<IRepository<CartItem>, Repository<CartItem>>();
+            services.AddScoped<ICartRepository, CartRepository>();
         }
     }
 }

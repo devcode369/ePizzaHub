@@ -41,7 +41,7 @@ namespace ePizzaHub.Services.Implementations
             if(result.Succeeded)
             {
                 //Admin User
-                string role = "Admin";
+                string role = "User";
                 var res = _userManager.AddToRolesAsync(user, new List<string> { role}).Result;
                 if(res.Succeeded)
                 {

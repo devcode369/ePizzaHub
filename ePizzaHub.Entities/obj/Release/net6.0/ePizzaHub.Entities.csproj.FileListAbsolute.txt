@@ -1,0 +1,12 @@
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\bin\Release\net6.0\ePizzaHub.Entities.deps.json
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\bin\Release\net6.0\ePizzaHub.Entities.dll
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\bin\Release\net6.0\ePizzaHub.Entities.pdb
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.csproj.AssemblyReference.cache
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.AssemblyInfoInputs.cache
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.AssemblyInfo.cs
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.csproj.CoreCompileInputs.cache
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.dll
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\refint\ePizzaHub.Entities.dll
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ePizzaHub.Entities.pdb
+C:\Users\devsa\source\ePizzaHub\ePizzaHub.Entities\obj\Release\net6.0\ref\ePizzaHub.Entities.dll
