@@ -1,5 +1,7 @@
-﻿using ePizzaHub.Services.Interfaces;
+﻿using ePizzaHub.Entities;
+using ePizzaHub.Services.Interfaces;
 using ePizzaHub.WebUI.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace ePizzaHub.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         ICatalogService _catalogService;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger,ICatalogService catalogService)
+        public HomeController(ILogger<HomeController> logger,ICatalogService catalogService, UserManager<User> userManager):base(userManager)
         {
             _logger = logger;
             _catalogService = catalogService;

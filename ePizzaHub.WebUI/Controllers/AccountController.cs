@@ -1,16 +1,17 @@
 ﻿using ePizzaHub.Entities;
 using ePizzaHub.Services.Interfaces;
 using ePizzaHub.WebUI.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ePizzaHub.WebUI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         IAuthenticationService _authService;
-        public AccountController(IAuthenticationService authService)
+        public AccountController(IAuthenticationService authService, UserManager<User> userManager):base(userManager)
         {
             _authService = authService;
         }
@@ -19,13 +20,17 @@ namespace ePizzaHub.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginModel loginModel)
+        public IActionResult Login(LoginModel loginModel,string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 var user = _authService.AuthenticateUser(loginModel.Email, loginModel.Password);
                 if (user != null)
                 {
+                    if (!string.IsNullOrEmpty(returnUrl)&& Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
                     if (user.Roles.Contains("Admin"))
                     {
                         return RedirectToAction("Index", "Dashboard", new { area = "Admin" });

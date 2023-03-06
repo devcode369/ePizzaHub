@@ -24,7 +24,7 @@ namespace ePizzaHub.WebUI.Helpers
 
         public string UploadFile(IFormFile file)
         {
-            var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+            var uploads = Path.Combine(_webHostEnvironment.WebRootPath, "images");
             bool exists=Directory.Exists(uploads);
             if(!exists)
                 Directory.CreateDirectory(uploads);
@@ -33,7 +33,7 @@ namespace ePizzaHub.WebUI.Helpers
             var fileStream=new FileStream(Path.Combine(uploads,fileName), FileMode.Create);
             file.CopyToAsync(fileStream);
 
-            return "/Images/" + fileName;
+            return "/images/" + fileName;
         }
 
         private string GenerateFileName(string fileName)
